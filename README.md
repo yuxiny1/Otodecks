@@ -1,5 +1,5 @@
 # Otodecks
-a basic DJ application
+# a DJ application using library JUCE and c++
 
 
 •	R1A: 
@@ -17,7 +17,6 @@ Those are the core logic of the Audioplayer, and we still need buttons to contro
 DeckGui will create, paint, and resize those buttons and sliders including play, stop, load, and volume, position, and speed.
 Lastly, the two decks created in the main component, and the main component will paint them in a good way with two players of the DJAudioPlayer, and they will share one format manager.
   
-
 •	R1C: 
 The music is mixed by the mixersource in the main component, and we mix the music by implementing mixer source in prepare to play, get next audio block, and release Resources. Furthermore, their volumes are controlled by the vol sliders. Sliders will ask player pointer to access the set gain function, and the set gain function get the setgain from transportsource. 
 
@@ -53,21 +52,20 @@ Button click takes responsible for the function load.
 This component of function allows the user to import files from the file system to the library. We will need to use file chooser again to choose the music documents, and get the name of those music documents, and check is this name existed in the library, and get length of the music document, and push the new name to the tracks vector, so we can see those names in the library file.
 
    
-R3B: 
+•	R3B: 
 The file name of the loaded file will be displayed due to the file.getFilenameWithoutExtension function, and the song length will be more complicated because it takes long time for me to figure out how does it work.
 Moreover, a function named getLength is called, and in the function, we use the pointer of palyerforplaylist to access the functions in DJAudio player, and we can use the load URL and getLengthInSeconds functions. Hence, we can the length of the music by seconds, and we can transfer the result to minutes by the seconds to minutes function.
 
-	Lastly, the Is in track function is comparatively simple that it iterates from the begin of the vector to the end of the vector to see is their same name in the vector.
+Lastly, the Is in track function is comparatively simple that it iterates from the begin of the vector to the end of the vector to see is their same name in the vector.
 
 •	R3C:
-  
 Search field is a function inherited from juce::textEditor, and we add the visible box to the table list box as usual with the add and make visible function, and the search field will connect with the searchLibrary to implement functions. Furthermore, we need a function to locate the music name in the tracks.  We will pass the search text that you typed in the field to the function and find the tokens I nthe tracks and locate it.
   
 •	R3D: 
-  
 Users can use the selectedRow function of the library to get rows from the music library, and once the row is selected, and we will click the button to load the file into the DeckGUI. DeckGUI has the ability to access the pointer of player in the DJAudio, and we can access the real component that loads the music, and it is load URL in the DJaudio, and we can load one to each other with two buttons, since we have two DeckGUIs.
+
 •	R3E: 
-•	In order to save the playlist in the library and I used the save library and load library functions to deliver.
+In order to save the playlist in the library and I used the save library and load library functions to deliver.
  
 •	R4: 
 The layer out of the DJ audio player designed to show the conditions of the players, and it is a simplified DJ audio player, and the core concept is that the colour of the player will inform the different conditions of the player. For example, the music stopped, and the background of the player will turn to whole red, and DeckGUI is pink while playing music, which is indicative.  
@@ -77,7 +75,7 @@ Moreover, we can use buttons and sliders to control the playing music. For examp
 
 
 •	R4B: 
-	R2 is the control deck playback section, and we can see this section blends with waveform display, and three buttons, and the position control. We can see three buttons corresponding to the three-line colours at the back of the DeckGui, and buttons will trigger the change of the background painting. For instance, colour flag is used here to set the colour of the background, and it works with the button click. Three buttons stays at the button of the DeckGui.
+R2 is the control deck playback section, and we can see this section blends with waveform display, and three buttons, and the position control. We can see three buttons corresponding to the three-line colours at the back of the DeckGui, and buttons will trigger the change of the background painting. For instance, colour flag is used here to set the colour of the background, and it works with the button click. Three buttons stays at the button of the DeckGui.
 
 •	R4C: GUI layout includes the music library component from R3 
 The music library component starts with the import tracks button, and this is the core function of the library with three headers, tracks name, length of the music, and the delete button to control the library. Furthermore, users will see an empty library and once the library is filled with tracks, and it will be full. The search field section is just below the list of the files, and also the add to deck1 and the add to deck 2 buttons stay at the bottom of the table list box. 
